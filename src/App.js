@@ -34,7 +34,24 @@ class App extends Component {
     });
     this.addDataUser(newUser);
   };
-
+  /* Update user */
+  updateRequest = userid => {
+    return axios.put(
+      decodeURI(
+        `https://cors-anywhere.herokuapp.com/https://api-sandbox.mysitoo.com/v2/accounts/90316/sites/1/users/${userid}.json`
+      ),
+      {
+        auth: {
+          username: "90316-125",
+          password: "pfX0Y7A2TYAlZ571IKEO7AKoXza6YlvsP8kKvAu3"
+        },
+        headers: {
+          "content-Type": "Application/json"
+        }
+      }
+    );
+  };
+  /**  add user */
   addDataUser = data => {
     axios({
       method: "post",
@@ -53,14 +70,7 @@ class App extends Component {
       }
     });
   };
-
-  addItem = data => {
-    this.setState({
-      lists: [...this.state.lists, this.state.fromChild],
-      fromChild: data
-    });
-  };
-
+  /**delete user */
   deleteItem = () => {
     const deleteRequests = [];
 
@@ -127,8 +137,8 @@ class App extends Component {
           userid: `${user.userid}`,
           name: `${user.namefirst} ${user.namelast}`,
           email: `${user.email}`,
-          datecreated: `${user.datecreated}`,
-          datemodified: `${user.datemodified}`,
+          datecreated: `${user.datecreated * 1000}`,
+          datemodified: `${user.datemodified * 1000}`,
           isSelected: false
         }))
       )
@@ -167,7 +177,7 @@ class App extends Component {
                       type="checkbox"
                       checked={user.isSelected}
                       onChange={() => this.selectUser(user.userid)}
-                    />{" "}
+                    />
                   </li>
                   <li> {user.name} </li>
                   <li> {user.email} </li>
@@ -179,7 +189,7 @@ class App extends Component {
                       hour: "2-digit",
                       minute: "2-digit",
                       year: "numeric"
-                    }).format(user.datecreated * 1000)}
+                    }).format(user.datecreated)}
                   </li>
                   <li>
                     {new Intl.DateTimeFormat("en-US", {
@@ -188,7 +198,7 @@ class App extends Component {
                       hour: "2-digit",
                       minute: "2-digit",
                       year: "numeric"
-                    }).format(user.datemodified * 1000)}
+                    }).format(user.datemodified)}
                   </li>
                 </ul>
               );
