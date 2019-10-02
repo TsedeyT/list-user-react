@@ -133,7 +133,7 @@ class App extends Component {
         }))
       )
       .then(users => {
-        console.log(users);
+        //console.log(users);
         this.setState({
           users,
           isLoading: false
@@ -179,7 +179,7 @@ class App extends Component {
                       hour: "2-digit",
                       minute: "2-digit",
                       year: "numeric"
-                    }).format(user.datecreated)}
+                    }).format(user.datecreated * 1000)}
                   </li>
                   <li>
                     {new Intl.DateTimeFormat("en-US", {
@@ -188,7 +188,7 @@ class App extends Component {
                       hour: "2-digit",
                       minute: "2-digit",
                       year: "numeric"
-                    }).format(user.datemodified)}
+                    }).format(user.datemodified * 1000)}
                   </li>
                 </ul>
               );

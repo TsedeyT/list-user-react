@@ -52,9 +52,9 @@ class Footer extends Component {
             >
               {close => (
                 <div className="modal">
-                  <a className="close" onClick={close}>
+                  <div className="close" onClick={close}>
                     &times;
-                  </a>
+                  </div>
                   <div className="header"> Add User </div>
                   <div className="content">
                     <form onSubmit={this.submitHandler}>
