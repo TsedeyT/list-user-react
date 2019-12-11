@@ -1,7 +1,7 @@
 import React from 'react'
 import { BrowserRouter as Router, NavLink } from "react-router-dom";
 
-import logo from '../img/sitoo_logo.svg'; 
+import logo from '../img/my_logo.svg'; 
 
 class Header extends React.Component{
 	render(){
