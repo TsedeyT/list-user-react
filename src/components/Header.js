@@ -10,7 +10,7 @@ class Header extends React.Component{
 		      <div>
 			    <nav>	
 			      <div className="grey--background">
-			      	<img src={logo}   className="logo" alt="Sitoo-Logo" />
+			      	<img src={logo}   className="logo" alt="My-Logo" />
 			      </div>
 			      <div className="dark-background">
 			      	<ul className='list--item list--header' >
